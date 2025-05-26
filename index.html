@@ -1,5 +1,56 @@
+
 <!DOCTYPE html>
-<html>
-<head><title>Nexoleya</title></head>
-<body><h1>Welcome to Nexoleya</h1></body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexoleya</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY&libraries=places"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      padding: 2em;
+      text-align: center;
+    }
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Nexoleya</h1>
+    <p>The most powerful location detection from images.</p>
+  </header>
+  <main>
+    <p>Upload image feature and detailed map localization will be enabled here.</p>
+    <div id="map"></div>
+  </main>
+  <script>
+    function initMap() {
+      const location = { lat: 39.9208, lng: 32.8541 }; // Ankara, Turkey
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: location,
+      });
+      new google.maps.Marker({
+        position: location,
+        map: map,
+      });
+    }
+    window.onload = initMap;
+  </script>
+</body>
 </html>
